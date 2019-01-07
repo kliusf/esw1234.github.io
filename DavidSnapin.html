@@ -1,6 +1,8 @@
 <html>
     <head>
-<style type='text/css'>
+</head> 
+    <body>
+	<style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
 		background-color: #005290;
 		font-family: "Salesforce Sans", sans-serif;
@@ -15,7 +17,7 @@
 	}
 </style>
 
-<script type='text/javascript' src='https://service.mobile1.t.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
@@ -28,22 +30,22 @@
 		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
 
 		// Settings for Field Service
-		embedded_svc.settings.loginClientId = 'DavidSnapin';
-		embedded_svc.settings.loginRedirectURL = 'https://esw1234.github.io/DavidSnapin.html';
-		embedded_svc.settings.loginTargetQuerySelector = '#salesforce-login';
-		embedded_svc.settings.authenticationStartLabel = 'Authenticated!';
 
 		embedded_svc.settings.enabledFeatures = ['FieldService'];
 		embedded_svc.settings.entryFeature = 'FieldService';
 
 		embedded_svc.settings.useCustomAuthentication = false;
+		embedded_svc.settings.loginClientId = 'DavidMobile2Snapin';
+		embedded_svc.settings.loginRedirectURL = 'https://esw1234.github.io/DavidSnapin-callback.html';
+		embedded_svc.settings.loginTargetQuerySelector = '#salesforce-login';
+		embedded_svc.settings.authenticationStartLabel = 'Authenticated!';
 
 		embedded_svc.init(
-			'https://mobile1.t.salesforce.com',
-			'https://kliu-snapin.mobile1.t.force.com',
+			'https://mobile2.t.salesforce.com',
+			'https://kliu-snapin-comm.mobile2.t.force.com',
 			gslbBaseURL,
-			'00DR00000001A0p',
-			'First_Snapin',
+			'00DR00000008l35',
+			'Snapin_mobile2',
 			{
 				
 			}
@@ -52,15 +54,17 @@
 
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
-		s.setAttribute('src', 'https://mobile1.t.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.setAttribute('src', 'https://mobile2.t.salesforce.com/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {
 			initESW(null);
 		};
 		document.body.appendChild(s);
 	} else {
-		initESW('https://service.mobile1.t.force.com');
+		initESW('https://service.force.com');
 	}
-</script>
-</head> 
-    <body><div id="salesforce-login"></div></body>
+</script>    
+	    <div id="salesforce-login"></div>
+	
+	
+	</body>
 </html>
